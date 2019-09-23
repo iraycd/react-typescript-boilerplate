@@ -13,7 +13,7 @@
     "audit": "audit-ci -l",
     "test": "run-s test:unit testci",
     "testci": "start-server-and-test serve http://localhost:3000 test:e2e",
-    "serve":"serve -l 3000 public/",
+    "serve": "serve -l 3000 public/",
     "test:unit": "jest",
     "test:e2e": "cypress run",
     "cypress": "cypress open",
@@ -25,6 +25,12 @@
     "type": "git",
     "url": "git+https://github.com/iraycd/react-typescript-boilerplate.git"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn test",
+      "pre-push": "yarn test"
+    }
+  },
   "devDependencies": {
     "@babel/core": "^7.6.0",
     "@semantic-release/changelog": "^3.0.4",
@@ -35,6 +41,7 @@
     "audit-ci": "^2.3.0",
     "colorette": "^1.1.0",
     "cypress": "^3.4.1",
+    "husky": "^3.0.5",
     "jest": "^24.9.0",
     "npm-run-all": "^4.1.5",
     "rollup": "^1.21.4",
