@@ -30,3 +30,4 @@ Yet Another Boilerplate for Typescript.
 
 + NPM License Checker: Audit CI
 + Dependency Size
+
