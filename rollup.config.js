@@ -9,18 +9,29 @@ import typescript from "rollup-plugin-typescript2";
 import globals from 'rollup-plugin-node-globals';
 import serve from 'rollup-plugin-serve';
 import livereload from 'rollup-plugin-livereload';
+import clear from "rollup-plugin-clear";
 
 import pkg from "./package.json";
 
 const input = "src/index.tsx";
 const external = Object.keys(pkg.peerDependencies || {});
 
+/**
+ * Where our output will be written to disk
+ */
+const outputDir = "./public/dist/";
+
 function createPlugins({
-  useSizeSnapshot
+  useSizeSnapshot,
+  prod
 } = {
   useSizeSnapshot: false,
 }) {
   const plugins = [
+    clear({
+      targets: [outputDir],
+      watch: true
+    }),
     peerDepsExternal(),
     nodeResolve(),
     babel({
@@ -48,10 +59,9 @@ function createPlugins({
       open: true,
       contentBase: 'public',
       port: process.env.PORT || 3000,
-    }),
-    livereload('public')
+    })
   ];
-
+  !prod && plugins.push(livereload('public'));
   useSizeSnapshot && plugins.push(sizeSnapshot());
   return plugins;
 }
