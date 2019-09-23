@@ -1,0 +1,19 @@
+{
+    "eslint.autoFixOnSave": true,
+    "editor.formatOnSave": false,
+    "eslint.validate": [
+      "javascript",
+      "javascriptreact",
+      {
+        "language": "typescript",
+        "autoFix": true
+      },
+      {
+        "language": "typescriptreact",
+        "autoFix": true
+      }
+    ],
+    "editor.insertSpaces": true,
+    "editor.autoIndent": true,
+    "editor.detectIndentation": true
+  }

@@ -9,9 +9,10 @@
   "scripts": {
     "start": "run-p build:watch test:watch",
     "build": "rollup -c --prod",
+    "lint": "eslint './src/**/*.{ts,tsx}' --fix",
     "build:watch": "rollup -cw",
     "audit": "audit-ci -l",
-    "test": "run-s test:unit testci",
+    "test": "run-s lint test:unit testci",
     "testci": "start-server-and-test serve http://localhost:3000 test:e2e",
     "serve": "serve -l 3000 public/",
     "test:unit": "jest",
@@ -27,7 +28,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn test",
+      "pre-commit": "yarn lint && yarn test",
       "pre-push": "yarn test"
     }
   },
@@ -38,12 +39,20 @@
     "@testing-library/jest-dom": "^4.1.0",
     "@testing-library/react": "^9.1.4",
     "@types/jest": "^24.0.18",
+    "@typescript-eslint/eslint-plugin": "^2.3.0",
+    "@typescript-eslint/parser": "^2.3.0",
     "audit-ci": "^2.3.0",
     "colorette": "^1.1.0",
     "cypress": "^3.4.1",
+    "eslint": "^6.4.0",
+    "eslint-config-prettier": "^6.3.0",
+    "eslint-plugin-jest": "^22.17.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-react": "^7.14.3",
     "husky": "^3.0.5",
     "jest": "^24.9.0",
     "npm-run-all": "^4.1.5",
+    "prettier": "^1.18.2",
     "rollup": "^1.21.4",
     "rollup-plugin-babel": "4.3.3",
     "rollup-plugin-clear": "^2.0.7",

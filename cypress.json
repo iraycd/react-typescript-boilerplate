@@ -1,4 +1,4 @@
 {
-    "fileServerFolder": "test/e2e",
-    "baseUrl": "http://localhost:3000/"
-  }
+  "fileServerFolder": "test/e2e",
+  "baseUrl": "http://localhost:3000/"
+}
