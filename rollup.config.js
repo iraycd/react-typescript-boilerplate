@@ -61,7 +61,7 @@ export default [
     input: input,
     output: {
       file: './public/dist/index.js',
-      format: "iife",
+      format: "es",
       banner: "/* eslint-disable */",
       sourcemap: true
     },
