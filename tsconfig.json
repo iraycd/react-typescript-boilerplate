@@ -9,8 +9,7 @@
       "noImplicitAny": true,
       "outDir": "./build",
       "preserveConstEnums": true,
-      "target": "es5",
-      "types": ["cypress", "@types/testing-library__cypress"]
+      "target": "es5"
     },
     "exclude": [
       "node_modules"
